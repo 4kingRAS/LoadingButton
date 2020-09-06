@@ -125,9 +125,9 @@ complete --> onLoadingStop --> onEndDrawableAppear --> onCompleted --> onRestore
 enableShrink            |boolean    |true                   |开始加载时收缩
 disableClickOnLoading   |boolean    |true                   |加载时禁用点击
 enableRestore           |boolean    |false                  |完成时，恢复按钮
-radius(SDK > 21         |dimension  |0dp                    |设置按钮的圆角,**(需要SDK>21)** <br>(来自([DrawableTextView](https://github.com/FlodCoding/DrawableTextView))
+radius(SDK > 21         |dimension  |0dp                    |设置按钮的圆角,**(需要SDK>=21)** <br>(来自([DrawableTextView](https://github.com/FlodCoding/DrawableTextView))
 shrinkDuration          |integer    |450ms                  |收缩动画时间
-shrinkShape             |enum<br>(Default,Oval)    |Oval   |收缩后的形状 **(需要SDK>21)** <br>(Default:保持原来的形状,Oval:圆形)
+shrinkShape             |enum<br>(Default,Oval)    |Oval   |收缩后的形状 **(需要SDK>=21)** <br>(Default:保持原来的形状,Oval:圆形)
 loadingEndDrawableSize  |dimension  |TextSize \*2           |设置LaodingDrawable和EndDrawable大小
 loadingDrawableColor    |reference  |TextColor              |设置Loading的颜色
 loadingDrawablePosition |enum<br>(Start,Top,<br>End,Bottom) |Start  |设置Loading的位置
@@ -144,8 +144,8 @@ complete(boolean isSuccess)         |是否成功           |-      |完成加�
 cancel(boolean withRestoreAnim)     |是否执行恢复动画   |false  |取消
 setEnableShrink(boolean enable)     |-                  |true   |设置加载时按钮收缩
 setEnableRestore(boolean enable)    |-                  |false  |设置完成时按钮恢复（形状和文字）
-setRadius(@Px int px)<br>setRadiusDP(int dp) |Px/Dp    |0    |设置按钮的圆角,**(需要SDK>21)**<br>(来自([DrawableTextView](https://github.com/FlodCoding/DrawableTextView))
-setShrinkShape(@ShrinkShape int shrinkShape) |Default:保持原来的形状,<br>Oval:圆形 |Oval  |收缩后的形状**(需要SDK>21)**
+setRadius(@Px int px)<br>setRadiusDP(int dp) |Px/Dp    |0    |设置按钮的圆角,**(需要SDK>=21)**<br>(来自([DrawableTextView](https://github.com/FlodCoding/DrawableTextView))
+setShrinkShape(@ShrinkShape int shrinkShape) |Default:保持原来的形状,<br>Oval:圆形 |Oval  |收缩后的形状 **(需要SDK>=21)**
 setShrinkDuration(long time) |milliseconds      |450ms  |收缩动画时间
 setLoadingEndDrawableSize(@Px int px)  |单位Px  |TextSize \*2   |设置LaodingDrawable和EndDrawable大小
 setLoadingPosition(@POSITION int position) |Start,Top,End,Bottom |Start  |设置Loading的位置
