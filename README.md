@@ -14,9 +14,11 @@
 根目录下的build.gradle
 ```
 	allprojects {
+	
 		  repositories {
 		  	...
-		  maven { url 'https://jitpack.io' }
+		  	maven { url 'https://jitpack.io' }
+		  	 
 		  }
 	}
 ```
@@ -125,9 +127,9 @@ complete --> onLoadingStop --> onEndDrawableAppear --> onCompleted --> onRestore
 enableShrink            |boolean    |true                   |开始加载时收缩
 disableClickOnLoading   |boolean    |true                   |加载时禁用点击
 enableRestore           |boolean    |false                  |完成时，恢复按钮
-radius(SDK > 21         |dimension  |0dp                    |设置按钮的圆角,**(需要SDK>=21)** <br>(来自([DrawableTextView](https://github.com/FlodCoding/DrawableTextView))
+radius         		|dimension  |0dp                    |设置按钮的圆角,**(需要SDK>=21)** <br>(来自([DrawableTextView](https://github.com/FlodCoding/DrawableTextView))
 shrinkDuration          |integer    |450ms                  |收缩动画时间
-shrinkShape             |enum<br>(Default,Oval)    |Oval   |收缩后的形状 **(需要SDK>=21)** <br>(Default:保持原来的形状,Oval:圆形)
+shrinkShape             |enum<br>(Default,Oval)    |Oval    |收缩后的形状 **(需要SDK>=21)** <br>(Default:保持原来的形状,Oval:圆形)
 loadingEndDrawableSize  |dimension  |TextSize \*2           |设置LaodingDrawable和EndDrawable大小
 loadingDrawableColor    |reference  |TextColor              |设置Loading的颜色
 loadingDrawablePosition |enum<br>(Start,Top,<br>End,Bottom) |Start  |设置Loading的位置
@@ -141,11 +143,11 @@ endDrawableDuration     |integer     | 900ms                |完成或失败图�
 ---|:--:|:---:|---:
 start()                             |-                  |-      |开始加载
 complete(boolean isSuccess)         |是否成功           |-      |完成加载
-cancel(boolean withRestoreAnim)     |是否执行恢复动画   |false  |取消
+cancel()<br>cancel(boolean withRestoreAnim)     |是否执行恢复动画   |true  |取消
 setEnableShrink(boolean enable)     |-                  |true   |设置加载时按钮收缩
 setEnableRestore(boolean enable)    |-                  |false  |设置完成时按钮恢复（形状和文字）
-setRadius(@Px int px)<br>setRadiusDP(int dp) |Px/Dp    |0    |设置按钮的圆角,**(需要SDK>=21)**<br>(来自([DrawableTextView](https://github.com/FlodCoding/DrawableTextView))
-setShrinkShape(@ShrinkShape int shrinkShape) |Default:保持原来的形状,<br>Oval:圆形 |Oval  |收缩后的形状 **(需要SDK>=21)**
+setRadius(@Px int px)<br>setRadiusDP(int dp) |Px/Dp    |0    |设置按钮的圆角<br>**(需要SDK>=21)**<br>(来自([DrawableTextView](https://github.com/FlodCoding/DrawableTextView))
+setShrinkShape(@ShrinkShape int shrinkShape) |Default:保持原来的形状,<br>Oval:圆形 |Oval  |收缩后的形状<br> **(需要SDK>=21)**
 setShrinkDuration(long time) |milliseconds      |450ms  |收缩动画时间
 setLoadingEndDrawableSize(@Px int px)  |单位Px  |TextSize \*2   |设置LaodingDrawable和EndDrawable大小
 setLoadingPosition(@POSITION int position) |Start,Top,End,Bottom |Start  |设置Loading的位置
@@ -154,6 +156,13 @@ setFailDrawable(@DrawableRes int drawableRes)<br>setFailDrawable(Drawable drawab
 setEndDrawableAppearDuration(long time)   |milliseconds     | 300ms                |完成或失败图标从无到有的时间
 setEndDrawableKeepDuration(long time)     |milliseconds     | 900ms                |完成或失败图标停留的时间
 setOnStatusChangedListener<br>(OnStatusChangedListener listener)|-|null|按钮的各种状态回调
+
+### 常见问题
+#### 完成加载时，如何自动恢复到之前按钮的状态？
+设置setEnableRestore(true)
+
+#### 当setEnableRestore(false)时，又想某个时机恢复原来的按钮的状态，要怎么做？
+执行cancel()
 
 
 ## Demo使用的第三方库
